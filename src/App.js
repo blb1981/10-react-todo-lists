@@ -1,74 +1,26 @@
-import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 
-import './App.css'
+import Navigation from './routes/navigation/navigation.component'
+import List1 from './routes/1/List1.component'
+import NotFoundPage from './routes/NotFoundPage/NotFoundPage.component.jsx'
 
-function App() {
-  //*------- Set state -------*/
-  const [taskText, setTaskText] = useState('')
-  const [tasks, setTasks] = useState([])
-
-  /*------- Event handler methods -------*/
-  const handleTextInput = (e) => {
-    setTaskText(e.target.value)
-  }
-
-  const handleAddTask = (e) => {
-    e.preventDefault()
-
-    const taskToAdd = {
-      id: new Date().getTime(),
-      name: taskText,
-      complete: false,
-    }
-    setTasks([...tasks, taskToAdd])
-    setTaskText('')
-  }
-
-  const handleDeleteTask = (taskToDelete) => {
-    setTasks(
-      tasks.filter((task) => {
-        return task.id !== taskToDelete.id
-      })
-    )
-  }
-
-  const handleCompleteTask = (taskToUpdate) => {
-    const updatedTaskList = tasks.map((task) => {
-      if (taskToUpdate.id === task.id) {
-        task.complete = !task.complete
-      }
-      return task
-    })
-    setTasks(updatedTaskList)
-  }
-
-  /*------- Render html -------*/
+const App = () => {
   return (
-    <div>
-      <form onSubmit={handleAddTask}>
-        <input
-          type='text'
-          name='taskInput'
-          value={taskText}
-          onChange={handleTextInput}
-        />
-        <button>Add</button>
-      </form>
-
-      <ul>
-        {tasks.map((task) => {
-          return (
-            <li>
-              <span className={`${task.complete ? 'complete' : ''}`}>
-                {task.name}
-              </span>
-              <button onClick={() => handleDeleteTask(task)}>X</button>
-              <button onClick={() => handleCompleteTask(task)}>Complete</button>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route path='1' element={<List1 />} />
+        {/* <Route path='2' element={<List2 />} /> */}
+        {/* <Route path='3' element={<List3 />} /> */}
+        {/* <Route path='4' element={<List4 />} /> */}
+        {/* <Route path='5' element={<List5 />} /> */}
+        {/* <Route path='6' element={<List6 />} /> */}
+        {/* <Route path='7' element={<List7 />} /> */}
+        {/* <Route path='8' element={<List8 />} /> */}
+        {/* <Route path='9' element={<List9 />} /> */}
+        {/* <Route path='10' element={<List10 />} /> */}
+        <Route path='*' element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   )
 }
 
