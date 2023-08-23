@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import Navigation from './routes/navigation/navigation.component'
 import List1 from './routes/1/List1.component'
+import List2 from './routes/2/List2.component'
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage.component.jsx'
 
 const App = () => {
@@ -9,7 +10,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Navigation />}>
         <Route path='1' element={<List1 />} />
-        {/* <Route path='2' element={<List2 />} /> */}
+        <Route path='2' element={<List2 />} />
         {/* <Route path='3' element={<List3 />} /> */}
         {/* <Route path='4' element={<List4 />} /> */}
         {/* <Route path='5' element={<List5 />} /> */}
