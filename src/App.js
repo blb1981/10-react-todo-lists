@@ -5,6 +5,7 @@ import List1 from './routes/1/List1.component'
 import List2 from './routes/2/List2.component'
 import List3 from './routes/3/List3.component'
 import List4 from './routes/4/List4.component'
+import List5 from './routes/5/List5.component'
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage.component.jsx'
 
 const App = () => {
@@ -15,7 +16,7 @@ const App = () => {
         <Route path='2' element={<List2 />} />
         <Route path='3' element={<List3 />} />
         <Route path='4' element={<List4 />} />
-        {/* <Route path='5' element={<List5 />} /> */}
+        <Route path='5' element={<List5 />} />
         {/* <Route path='6' element={<List6 />} /> */}
         {/* <Route path='7' element={<List7 />} /> */}
         {/* <Route path='8' element={<List8 />} /> */}
